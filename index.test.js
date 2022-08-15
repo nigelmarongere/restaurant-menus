@@ -18,26 +18,52 @@ describe('Restaurant and Menu Models', () => {
 
     test('can create a Restaurant', async () => {
         // TODO - write test
-        expect('NO TEST').toEqual('EXPECTED DATA')
+        await Restaurant.sync();
+        const democles = await Restaurant.create({
+            name: 'Democles',
+            location: 'Athens',
+            cuisine: 'Greek'
+        });
+        expect(democles instanceof Restaurant).toEqual(true)
     });
 
     test('can create a Menu', async () => {
         // TODO - write test
-        expect('NO TEST').toEqual('EXPECTED DATA')
+        await Menu.sync();
+        const democlesMenu = await Menu.create({
+            title: 'Philosopher Brunch'
+        });
+        expect(democlesMenu instanceof Menu).toEqual(true)
     });
 
     test('can find Restaurants', async () => {
         // TODO - write test
-        expect('NO TEST').toEqual('EXPECTED DATA')
+        const greekPlace = await Restaurant.findOne({
+            where: {
+                name: 'Democles'
+            }
+        });
+        expect(greekPlace['dataValues'].cuisine).toEqual('Greek')
     });
 
     test('can find Menus', async () => {
         // TODO - write test
-        expect('NO TEST').toEqual('EXPECTED DATA')
+        const platoEats = await Menu.findOne({
+            where: {
+                title: 'Philosopher Brunch'
+            }
+        });
+        expect(platoEats['dataValues'].title).toEqual('Philosopher Brunch')
     });
 
     test('can delete Restaurants', async () => {
         // TODO - write test
-        expect('NO TEST').toEqual('EXPECTED DATA')
+        const platoStarves = await Restaurant.destroy({
+            where: {
+                name: 'Democles'
+            }
+        });
+        console.log(platoStarves);
+        expect(platoStarves).toEqual(1)
     });
 })

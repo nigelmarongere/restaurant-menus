@@ -1,17 +1,26 @@
 {
   "name": "application-servers",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Sequelize DB for restaurants to organize their menus",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "test:coverage": "jest --verbose --collect-coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jest": "27.5.1",
+    "jest": "^27.5.1",
     "sequelize": "^6.6.2",
     "sqlite3": "^5.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nigelmarongere/restaurant-menus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nigelmarongere/restaurant-menus/issues"
+  },
+  "homepage": "https://github.com/nigelmarongere/restaurant-menus#readme"
 }
